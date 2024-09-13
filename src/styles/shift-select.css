@@ -1,0 +1,114 @@
+.shift-select {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 30px 10px;
+    opacity: 0;
+    pointer-events: none;
+
+    &.show {
+        opacity: 1;
+        pointer-events: unset;
+    }
+
+    .posting {
+        border-left: 3px solid #000;
+        overflow: hidden;
+        border-bottom: 3px solid #000;
+        padding: 20px 30px;
+
+        .posting:first-child {
+            margin-top: 25px;
+        }
+
+        h1 {
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+
+        > div {
+            margin-top: 15px;
+            font-size: 25px;
+            animation: pulse 1.5s ease-in-out infinite;
+
+            &.disabled {
+                opacity: 0.3;
+                animation: none;
+            }
+
+            .rank {
+                font-weight: bold;
+                font-size: 35px;
+                transform: translateY(-50%);
+                top: 50%;
+                position: absolute;
+                right: 0;
+
+                color: silver;
+                filter: drop-shadow(0 0 1px #999);
+                -webkit-text-stroke: black 1px;
+
+                &.A {
+                    color: gold;
+                }
+
+                &.B {
+                    color: silver;
+                }
+
+                &.C {
+                    color: olivedrab;
+                }
+            }
+        }
+    }
+}
+
+.shift-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px 20px 0;
+    text-align: center;
+    pointer-events: none;
+
+    h2 {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    > div {
+        font-size: 40px;
+        margin-top: 20px;
+        text-align: center;
+
+        &:nth-child(3) {
+            color: green;
+        }
+
+        &:nth-child(4) {
+            color: red;
+        }
+
+        &.duty-select-prompt {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #000;
+            animation: dsp-blink 1.3s linear infinite;
+            padding: 20px;
+            opacity: 0;
+            width: 100%;
+            background-color: yellow;
+
+            &.show {
+                opacity: 1;
+            }
+        }
+    }
+}

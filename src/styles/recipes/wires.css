@@ -1,0 +1,111 @@
+.wiring {
+    width: 100%;
+    height: 100%;
+
+    .housing {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: #000;
+        width: 80%;
+        height: 80%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 20px;
+    }
+
+    .wire-wrap {
+        width: 100%;
+        height: 10%;
+        display: flex;
+
+        .left,
+        .right,
+        .middle {
+            height: 100%;
+            &:before,
+            &:after {
+                content: "";
+                position: absolute;
+            }
+            &:after {
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(rgba(0, 0, 0, 0.4), transparent, rgba(0, 0, 0, 0.4));
+            }
+        }
+
+        .left,
+        .right {
+            width: 10%;
+
+            &:before {
+                right: 0;
+                top: 50%;
+                transform: translate(50%, -50%);
+                height: 33%;
+                width: 25px;
+                background-color: silver;
+            }
+        }
+
+        .right {
+            &:before {
+                left: 0;
+                right: auto;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .middle {
+            width: 100%;
+            opacity: 0;
+            z-index: 5;
+
+            &:after {
+                width: 94%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        &.repaired .middle {
+            opacity: 1;
+        }
+
+        .red:after {
+            background-color: red;
+        }
+
+        .green:after {
+            background-color: green;
+        }
+
+        .blue:after {
+            background-color: blue;
+        }
+
+        .yellow:after {
+            background-color: yellow;
+        }
+
+        .purple:after {
+            background-color: purple;
+        }
+
+        .orange:after {
+            background-color: orange;
+        }
+
+        .pink:after {
+            background-color: pink;
+        }
+
+        .blue-green:after {
+            background-color: turquoise;
+        }
+    }
+}

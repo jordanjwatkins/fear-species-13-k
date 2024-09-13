@@ -1,0 +1,103 @@
+.covered-reset {
+    width: 100%;
+    height: 100%;
+}
+
+.cover {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    width: 40%;
+    height: 40%;
+    background: #000;
+    overflow: hidden;
+    border-radius: 5px;
+
+    &:before {
+        content: "ⶀቈ";
+        position: absolute;
+        background-color: #d4daff;
+        opacity: 0.8;
+        width: 100%;
+        height: 100%;
+        display: block;
+        transform: translateY(0%);
+        transition: 0.3s transform ease-in-out;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 60px;
+        color: red;
+        -webkit-text-stroke: 2px #5320ff;
+    }
+}
+
+.step-1 .covered-reset {
+    .cover:before {
+        transform: translateY(-90%);
+    }
+}
+
+.light {
+    background-color: red;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10%;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    box-shadow: 0 0 10px 10px red;
+    animation: red-blink 1s linear infinite;
+}
+
+.step-2 .covered-reset {
+    .button {
+        /*background: radial-gradient(#a60505, #000);*/
+        animation: blink 1s linear infinite;
+    }
+}
+
+.button {
+    border: 5px inset #eee;
+    width: 50%;
+    aspect-ratio: 1;
+    background: radial-gradient(red, #000);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 100%;
+    z-index: 1;
+}
+
+.step-3 .covered-reset {
+    .light {
+        background-color: green;
+        box-shadow: 0 0 10px 10px green;
+        animation: none;
+    }
+
+    .button {
+        animation: none;
+    }
+
+    .cover:before {
+        transform: translateY(0);
+    }
+}
+
+@keyframes blink {
+    50% {
+        background: radial-gradient(#a60505, #000);
+    }
+}
+
+@keyframes red-blink {
+    50% {
+        background: #7f0404;
+        box-shadow: 0 0 10px 10px transparent;
+    }
+}

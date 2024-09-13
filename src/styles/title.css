@@ -1,0 +1,264 @@
+.audio-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    font-size: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    cursor: pointer;
+    pointer-events: all;
+
+    &.hide {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+.title-wrap,
+.title {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    /*display: none;*/
+}
+
+.title-wrap {
+    pointer-events: none;
+}
+
+.title {
+    background: #000;
+    pointer-events: all;
+}
+
+.title.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.title-word {
+    color: #157408;
+    font-size: 15vmin;
+    font-family: sans-serif;
+    text-shadow: red 0 0 20px;
+    -webkit-text-stroke: 3px red;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    animation: 0.3s flicker linear forwards;
+    opacity: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.fear {
+    top: 15%;
+    animation-delay: 0.5s;
+}
+
+.species {
+    bottom: 10%;
+    animation-delay: 2.5s;
+}
+
+.tank-wrap {
+    height: 20vh;
+    aspect-ratio: 1/2;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: 0.3s flicker linear forwards;
+    animation-delay: 1.5s;
+    opacity: 0;
+    top: 44%;
+}
+
+.tank {
+    background: #157408;
+    height: 20vh;
+    aspect-ratio: 1/2;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .top,
+    .bottom {
+        background-color: #157408;
+        width: 99%;
+        aspect-ratio: 3;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 100%;
+        top: 0;
+        border: 5px solid #19870b;
+        box-shadow: 0 0 10px #19870b;
+    }
+
+    .bottom {
+        top: auto;
+        bottom: 0;
+        transform: translate(-50%, 50%);
+    }
+}
+
+.tank-over {
+    background: linear-gradient(45deg, #3e3741 0, #fff 100%);
+    height: 30vh;
+    aspect-ratio: 1/2;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -70%);
+    mix-blend-mode: overlay;
+}
+
+.specimen {
+    border-radius: 100%;
+    background-color: black;
+    width: 40%;
+    height: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, calc(-50% + 0.1vh));
+    opacity: 0.3;
+    animation: 5s bob-s ease-in-out infinite;
+
+    .head {
+        border-radius: 100%;
+        background-color: black;
+        width: 70%;
+        height: 50%;
+        position: absolute;
+        left: 80%;
+        top: 10%;
+        transform: translate(-50%, -50%);
+
+        .eye {
+            width: 30%;
+            aspect-ratio: 1.6;
+            background-color: green;
+            position: absolute;
+            left: 20%;
+            top: 30%;
+            border-radius: 100%;
+            animation: 15s look ease-in-out infinite;
+
+            &.r {
+                left: 60%;
+            }
+        }
+    }
+
+    .body {
+        border-radius: 100%;
+        background-color: black;
+        width: 70%;
+        height: 60%;
+        position: absolute;
+        left: 90%;
+        top: 80%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.tube,
+.tube-2 {
+    position: absolute;
+    top: 20%;
+    left: 46%;
+    background-color: transparent;
+    width: 34%;
+    height: 40%;
+    border-radius: 30px;
+    opacity: 1;
+    animation: 5s bob-s ease-in-out infinite;
+    transform: translate(-50%, calc(-50% + 0.1vh));
+    border-style: inset;
+    border-color: transparent;
+    border-width: 4px;
+    border-left-color: #1ba719;
+}
+
+.tube-2 {
+    border-left-color: transparent;
+    border-right-color: #195318;
+    left: 56.5%;
+    height: 24.5%;
+    top: 11%;
+}
+
+.hookup {
+    position: absolute;
+    top: 0.4%;
+    left: 50%;
+    background-color: #083e07;
+    width: 40%;
+    height: 10%;
+    border-radius: 100%;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+
+.top-lid,
+.bottom-lid {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    height: 50%;
+    background-color: #000;
+    transition: transform 0.5s ease-in-out;
+    z-index: 100;
+
+    &.closed {
+        transform: translateY(0);
+    }
+}
+
+.top-lid {
+    top: 0;
+    transform: translateY(-100%);
+}
+
+.bottom-lid {
+    bottom: 0;
+    transform: translateY(100%);
+}
+
+@keyframes bob-s {
+    50% {
+        transform: translate(-50%, calc(-50% - 0.6vh));
+    }
+}
+
+@keyframes look {
+    50% {
+        aspect-ratio: 4.6;
+    }
+}
+
+@keyframes flicker {
+    25% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

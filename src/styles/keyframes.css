@@ -1,0 +1,18 @@
+@keyframes dsp-blink {
+    49.9% {
+        color: #000;
+        background: yellow;
+    }
+    50% {
+        background: radial-gradient(#a60505, #bb3131);
+        color: #fff;
+    }
+    99.9% {
+        color: #fff;
+        background: radial-gradient(#a60505, #bb3131);
+    }
+    100% {
+        color: #000;
+        background: yellow;
+    }
+}

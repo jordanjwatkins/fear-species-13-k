@@ -1,0 +1,97 @@
+html,
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #33c03e;
+    font-family: sans-serif;
+    user-select: none;
+    touch-action: none;
+}
+
+* {
+    position: relative;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    pointer-events: none;
+}
+
+:root {
+    --game-scale: 0.8;
+}
+
+.game-wrap {
+    width: 1000px;
+    height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: content-box;
+
+    border-radius: 60px;
+    padding: 100px 22px;
+    background-color: #111;
+    margin: 0 auto;
+
+    transform: translate3d(calc(-50%), -50%, 0) scale(var(--game-scale));
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    animation: 5s bob linear infinite;
+
+    &.landscape {
+        padding: 22px 100px;
+    }
+}
+
+@keyframes bob {
+    50% {
+        transform: translate3d(calc(-50%), -51%, 0) scale(var(--game-scale));
+    }
+}
+
+.bubble {
+    position: absolute;
+    top: 102%;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    backface-visibility: hidden;
+    animation: 15s tank-bubble linear infinite;
+
+    /*will-change: true;*/
+
+    > div {
+        animation: 1.5s tank-bubble-x ease-in-out infinite;
+        border-radius: 100%;
+        width: 100%;
+        height: 100%;
+        border: 3px solid rgb(1, 255, 1);
+        opacity: 0.3;
+        transform: translateX(0);
+    }
+}
+
+@keyframes tank-bubble {
+    100% {
+        transform: translateY(-10000%);
+    }
+}
+
+@keyframes tank-bubble-x {
+    50% {
+        transform: translateX(-50%);
+    }
+}
